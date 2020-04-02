@@ -8,4 +8,23 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="AppTheme.CustomTheme" parent="Theme.MaterialComponents.Light">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:statusBarColor">@color/bgGradientStartColor</item>
+        <item name="android:navigationBarColor">@color/bgGradientEndColor</item>
+        <item name="android:windowBackground">@drawable/window_gradient_background</item>
+    </style>
+
+    <style name="AppTheme.SplashScreen" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@color/bgGradientEndColor</item>
+        <item name="android:windowBackground">@drawable/window_gradient_background</item>
+    </style>
 </resources>

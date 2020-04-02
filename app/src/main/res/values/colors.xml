@@ -3,4 +3,10 @@
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
+
+    <color name="bgGradientStartColor">#009DA0</color>
+    <color name="bgGradientCenterColor">#867D99</color>
+    <color name="bgGradientEndColor">#EE0070</color>
+
+    <color name="splashLogoBackground">#CC009DA0</color>
 </resources>
