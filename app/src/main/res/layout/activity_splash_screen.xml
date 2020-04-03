@@ -6,13 +6,13 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".SplashScreenActivity">
+        tools:context=".ui.SplashScreenActivity">
 
         <ImageView
             android:id="@+id/splash_logo_bg_iv"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:background="@color/splashLogoBackground"
+            android:background="@color/splashLogoBg"
             android:paddingTop="100dp"
             android:paddingRight="16dp"
             android:paddingBottom="100dp"
@@ -41,7 +41,7 @@
             android:layout_marginTop="10dp"
             android:fontFamily="@font/capriola"
             android:text="eBook Shop"
-            android:textColor="#F6F0F3"
+            android:textColor="@color/fontPrimary"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="@+id/splash_horizontal_center_guideline"
             app:layout_constraintHorizontal_bias="0.012"
@@ -55,7 +55,7 @@
             android:layout_marginTop="5dp"
             android:fontFamily="monospace"
             android:text="Manage and Review Library Books"
-            android:textColor="#F6F0F3"
+            android:textColor="@color/fontPrimary"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="@+id/splash_logo_bg_iv"
             app:layout_constraintStart_toStartOf="@+id/splash_logo_bg_iv"

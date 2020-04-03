@@ -8,5 +8,8 @@
     <color name="bgGradientCenterColor">#867D99</color>
     <color name="bgGradientEndColor">#EE0070</color>
 
-    <color name="splashLogoBackground">#CC009DA0</color>
+    <color name="fontPrimary">#CEF9FF</color>
+    <color name="splashLogoBg">#CC009DA0</color>
+
+    <color name="bookWrapper">#A0ACB6</color>
 </resources>

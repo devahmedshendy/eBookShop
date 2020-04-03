@@ -1,8 +1,10 @@
-package learn.shendy.e_bookshop;
+package learn.shendy.e_bookshop.ui;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import learn.shendy.e_bookshop.R;
 
 public class MainActivity extends AppCompatActivity {
 

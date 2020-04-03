@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">E-Book Shop</string>
+
+    <string name="recent">Recent</string>
+    <string name="action_and_adventure">Action and Adventure</string>
+    <string name="science_fiction">Science Fiction</string>
+    <string name="fantasy">Fantasy</string>
+    <string name="default_category_description">A default category created by the app for \'%s\' books</string>
+    <string name="empty_category_message">Empty Category, please add books to display</string>
 </resources>

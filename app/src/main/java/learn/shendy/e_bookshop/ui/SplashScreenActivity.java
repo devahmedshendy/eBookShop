@@ -1,4 +1,4 @@
-package learn.shendy.e_bookshop;
+package learn.shendy.e_bookshop.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,7 +8,8 @@ import android.view.animation.AnimationUtils;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
-import learn.shendy.e_bookshop.databinding.ActivitySplashScreenBinding;
+import learn.shendy.e_bookshop.R;
+import learn.shendy.e_bookshop.databinding.ActivitySplashScreenBindingImpl;
 import learn.shendy.e_bookshop.util.AsyncUtils;
 
 import static android.view.WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS;
@@ -16,7 +17,7 @@ import static android.view.WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS;
 public class SplashScreenActivity extends AppCompatActivity {
     public static final int SPLASH_SCREEN_TIMEOUT = 2500;
 
-    private ActivitySplashScreenBinding mBinding;
+    private ActivitySplashScreenBindingImpl mBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +46,7 @@ public class SplashScreenActivity extends AppCompatActivity {
 
     private void startNextActivity() {
         AsyncUtils.doDelayedInBackground(() -> {
-            startActivity(new Intent(SplashScreenActivity.this, MainActivity.class));
+            startActivity(new Intent(SplashScreenActivity.this, DashboardActivity.class));
             finish();
         }, SPLASH_SCREEN_TIMEOUT);
     }
