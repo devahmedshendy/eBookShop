@@ -6,70 +6,70 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.SplashScreenActivity">
+        tools:context=".views.SplashScreenActivity">
 
         <ImageView
-            android:id="@+id/splash_logo_bg_iv"
+            android:id="@+id/splash_app_bg_iv"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:background="@color/splashLogoBg"
             android:paddingTop="100dp"
-            android:paddingRight="16dp"
+            android:paddingEnd="16dp"
             android:paddingBottom="100dp"
             android:scaleType="centerInside"
-            app:layout_constraintBottom_toTopOf="@+id/splash_logo_bg_bottom_guideline"
+            app:layout_constraintBottom_toTopOf="@+id/splash_app_bg_bottom_guideline"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/splash_logo_bg_top_guideline" />
+            app:layout_constraintTop_toTopOf="@+id/splash_app_bg_top_guideline" />
 
         <ImageView
-            android:id="@+id/splash_logo_iv"
+            android:id="@+id/splash_app_logo_iv"
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:scaleType="centerInside"
-            app:layout_constraintBottom_toTopOf="@+id/splash_logo_bg_bottom_guideline"
+            app:layout_constraintBottom_toTopOf="@+id/splash_app_bg_bottom_guideline"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.45"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/splash_logo_bg_top_guideline"
+            app:layout_constraintTop_toTopOf="@+id/splash_app_bg_top_guideline"
             app:srcCompat="@drawable/logo" />
 
         <TextView
-            android:id="@+id/splash_logo_name_tv"
+            android:id="@+id/splash_app_name_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/capriola"
-            android:text="eBook Shop"
+            android:text="@string/app_name"
             android:textColor="@color/fontPrimary"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="@+id/splash_horizontal_center_guideline"
             app:layout_constraintHorizontal_bias="0.012"
             app:layout_constraintStart_toStartOf="@+id/splash_horizontal_center_guideline"
-            app:layout_constraintTop_toBottomOf="@+id/splash_logo_iv" />
+            app:layout_constraintTop_toBottomOf="@+id/splash_app_logo_iv" />
 
         <TextView
-            android:id="@+id/splash_slang_tv"
+            android:id="@+id/splash_app_slogan_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:fontFamily="monospace"
-            android:text="Manage and Review Library Books"
+            android:text="@string/app_slogan"
             android:textColor="@color/fontPrimary"
             android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="@+id/splash_logo_bg_iv"
-            app:layout_constraintStart_toStartOf="@+id/splash_logo_bg_iv"
-            app:layout_constraintTop_toBottomOf="@+id/splash_logo_bg_iv" />
+            app:layout_constraintEnd_toEndOf="@+id/splash_app_bg_iv"
+            app:layout_constraintStart_toStartOf="@+id/splash_app_bg_iv"
+            app:layout_constraintTop_toBottomOf="@+id/splash_app_bg_iv" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/splash_logo_bg_top_guideline"
+            android:id="@+id/splash_app_bg_top_guideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.25" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/splash_logo_bg_bottom_guideline"
+            android:id="@+id/splash_app_bg_bottom_guideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"

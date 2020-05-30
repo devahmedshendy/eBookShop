@@ -1,2 +1,2 @@
-rootProject.name='E-Book Shop'
+rootProject.name='eBook Shop'
 include ':app'

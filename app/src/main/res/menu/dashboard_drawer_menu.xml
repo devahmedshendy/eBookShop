@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="@string/dashboard_drawer_settings_title">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/dashboard_drawer_reset_item"
+                    android:title="@string/dashboard_drawer_reset_title"
+                    android:icon="@drawable/ic_drawer_reset_settings" />
+            </group>
+        </menu>
+    </item>
+</menu>

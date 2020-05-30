@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+<!--        <import type="learn.shendy.e_bookshop.utils.BindingConverters" alias="Converters" />-->
+        <import type="android.view.View" />
+
+        <variable
+            name="pleaseWait"
+            type="boolean" />
+
+        <variable
+            name="isValidToSave"
+            type="boolean" />
+
+        <variable
+            name="bookCoverName"
+            type="String" />
+
+        <variable
+            name="bookName"
+            type="String" />
+
+        <variable
+            name="bookPrice"
+            type="String" />
+
+        <variable
+            name="categoryName"
+            type="String" />
+
+        <variable
+            name="newBook"
+            type="learn.shendy.ebookshop.db.books.Book" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bookWrapper">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/add_book_fragment_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardElevation="0dp"
+            app:contentPaddingLeft="10dp"
+            app:contentPaddingRight="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/add_book_toolbar_title"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:fontFamily="@font/cabin"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:text="@string/add_book"
+                    android:textAllCaps="true"
+                    android:textColor="@color/bgGradientEndColor"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/add_book_toolbar_save_iv"
+                    app:layout_constraintStart_toEndOf="@+id/add_book_toolbar_close_iv"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/add_book_toolbar_close_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:tint="@color/bgGradientEndColor"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_close_white" />
+
+                <ImageView
+                    android:id="@+id/add_book_toolbar_save_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:alpha="@{isValidToSave ? 255 : 75, default = 75}"
+                    android:clickable="@{isValidToSave, default = false}"
+                    android:focusable="@{isValidToSave, default = false}"
+                    android:padding="5dp"
+                    android:tint="@color/bgGradientEndColor"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_save" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/add_book_fragment_toolbar"
+            tools:context=".views.fragments.AddBookFragment">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/add_book_fragment_cover_card"
+                    android:layout_width="0dp"
+                    android:layout_height="350dp"
+                    app:cardBackgroundColor="@android:color/transparent"
+                    app:cardCornerRadius="0dp"
+                    app:cardElevation="2dp"
+                    app:layout_constraintDimensionRatio="w,2:3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/new_book_cover_iv"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_margin="10dp"
+                        android:scaleType="centerInside"
+                        app:srcCompat="@drawable/book_cover_select_placeholder" />
+                </androidx.cardview.widget.CardView>
+
+                <View
+                    android:id="@+id/divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="50dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@color/bgGradientEndColor"
+                    app:layout_constraintBottom_toTopOf="@+id/new_book_name_input"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/add_book_fragment_cover_card" />
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/new_book_cover_name_input"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:text="@={bookCoverName}"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="@+id/add_book_fragment_cover_card"
+                    app:layout_constraintStart_toStartOf="@+id/add_book_fragment_cover_card" />
+
+                <TextView
+                    android:id="@+id/new_book_cover_name_error"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/book_cover_is_required"
+                    android:textColor="@android:color/holo_red_dark"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="@+id/add_book_fragment_cover_card"
+                    app:layout_constraintStart_toStartOf="@+id/add_book_fragment_cover_card"
+                    app:layout_constraintTop_toBottomOf="@+id/add_book_fragment_cover_card"
+                    tools:visibility="visible" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/new_book_name_input"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    app:layout_constraintBottom_toTopOf="@id/new_book_price_input"
+                    app:layout_constraintEnd_toEndOf="@+id/divider"
+                    app:layout_constraintStart_toStartOf="@+id/divider">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/book_name_hint"
+                        android:inputType="text|textCapWords"
+                        android:text="@={bookName}"
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/new_book_price_input"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    app:layout_constraintBottom_toTopOf="@+id/new_book_category_name_input"
+                    app:layout_constraintEnd_toEndOf="@+id/new_book_name_input"
+                    app:layout_constraintStart_toStartOf="@+id/new_book_name_input">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/book_price_hint"
+                        android:inputType="numberDecimal"
+                        android:text="@={bookPrice}"
+                        android:textSize="14sp" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/new_book_category_name_input"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/new_book_price_input"
+                    app:layout_constraintStart_toStartOf="@+id/new_book_price_input">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/new_book_category_name_input_tv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:cursorVisible="false"
+                        android:drawableEnd="@drawable/ic_drop_down"
+                        android:focusableInTouchMode="false"
+                        android:hint="@string/category_name_hint"
+                        android:singleLine="true"
+                        android:text="@={categoryName}"
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <include
+            android:id="@+id/add_book_please_wait"
+            layout="@layout/progressbar_please_wait"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{pleaseWait ? View.VISIBLE : View.GONE, default = `gone` }"
+            tools:layout_editor_absoluteY="350dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <FrameLayout
+            android:id="@+id/add_book_dialog_container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

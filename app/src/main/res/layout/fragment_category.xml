@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+
+        <variable
+            name="isLoading"
+            type="boolean" />
+
+        <variable
+            name="categoryName"
+            type="String" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".views.fragments.CategoryFragment">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/book_list_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:cardBackgroundColor="@android:color/transparent"
+            app:cardElevation="0dp"
+            app:contentPaddingLeft="10dp"
+            app:contentPaddingRight="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/book_list_toolbar_title"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/cabin"
+                    android:gravity="center_vertical"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:singleLine="true"
+                    android:textAllCaps="true"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    android:visibility="@{isLoading ? View.INVISIBLE : View.VISIBLE, default = `invisible` }"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/book_list_toolbar_edit_iv"
+                    app:layout_constraintStart_toEndOf="@+id/book_list_toolbar_back_iv"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:text="@{categoryName}"
+                    tools:text="@string/action_and_adventure_category" />
+
+                <TextView
+                    android:id="@+id/book_list_toolbar_subtitle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="2dp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/cabin"
+                    android:gravity="bottom|start"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:singleLine="true"
+                    android:textColor="#C9D5DE"
+                    android:textSize="12sp"
+                    android:visibility="@{isLoading ? View.INVISIBLE : View.VISIBLE, default = `invisible`}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/book_list_toolbar_edit_iv"
+                    app:layout_constraintStart_toEndOf="@+id/book_list_toolbar_back_iv"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:text="@string/category_book_list_toolbar_subtitle"/>
+
+                <ImageView
+                    android:id="@+id/book_list_toolbar_back_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_back_white" />
+
+                <ImageView
+                    android:id="@+id/book_list_toolbar_edit_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/book_list_toolbar_more_menu"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_edit_white" />
+
+                <ImageView
+                    android:id="@+id/book_list_toolbar_more_menu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_more_menu_white" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/book_list_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="20dp"
+            android:visibility="@{isLoading ? View.GONE : View.VISIBLE, default = `gone`}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/book_list_toolbar"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <include
+            android:id="@+id/loading_spinner_include"
+            layout="@layout/progressbar_loading_list_data"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:elevation="5dp"
+            android:visibility="@{isLoading ? View.VISIBLE : View.INVISIBLE, default = `visible`}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/book_list_toolbar" />
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/book_list_add_book_fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="@string/add_book"
+            android:textColor="@color/bgGradientEndColor"
+            android:textSize="12sp"
+            app:icon="@drawable/ic_add"
+            app:iconPadding="5dp"
+            app:iconSize="22dp"
+            app:iconTint="@color/bgGradientEndColor"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <FrameLayout
+            android:id="@+id/main_dialog_container"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </FrameLayout>
+
+<!--        <FrameLayout-->
+<!--            android:id="@+id/category_book_list_dialog_frame_container"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:visibility="visible"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent">-->
+
+<!--        </FrameLayout>-->
+
+        <include
+            android:id="@+id/delete_category_please_wait"
+            layout="@layout/progressbar_please_wait"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

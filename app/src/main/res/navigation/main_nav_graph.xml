@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/dashboardFragment">
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="learn.shendy.ebookshop.views.fragments.DashboardFragment"
+        android:label="DashboardFragment"
+        tools:layout="@layout/fragment_dashboard">
+        <action
+            android:id="@+id/action_dashboardFragment_to_addCategoryFragment"
+            app:destination="@id/addCategoryFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/slide_out_top"
+            app:popEnterAnim="@anim/slide_in_top"
+            app:popExitAnim="@anim/slide_out_bottom" />
+
+        <action
+            android:id="@+id/action_dashboardFragment_to_categoryBookListFragment"
+            app:destination="@id/categoryBookListFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_dashboardFragment_to_editBookFragment"
+            app:destination="@id/editBookFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/slide_out_top"
+            app:popEnterAnim="@anim/slide_in_top"
+            app:popExitAnim="@anim/slide_out_bottom" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addCategoryFragment"
+        android:name="learn.shendy.ebookshop.views.fragments.AddCategoryFragment"
+        android:label="AddCategoryFragment"
+        tools:layout="@layout/fragment_add_category"/>
+
+    <fragment
+        android:id="@+id/categoryBookListFragment"
+        android:name="learn.shendy.ebookshop.views.fragments.CategoryFragment"
+        android:label="CategoryBookListFragment"
+        tools:layout="@layout/fragment_category">
+        <action
+            android:id="@+id/action_categoryBookListFragment_to_editCategoryFragment"
+            app:destination="@id/editCategoryFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/slide_out_top"
+            app:popEnterAnim="@anim/slide_in_top"
+            app:popExitAnim="@anim/slide_out_bottom" />
+        <action
+            android:id="@+id/action_categoryBookListFragment_to_addBookFragment"
+            app:destination="@id/addBookFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/slide_out_top"
+            app:popEnterAnim="@anim/slide_in_top"
+            app:popExitAnim="@anim/slide_out_bottom" />
+
+        <action
+            android:id="@+id/action_categoryBookListFragment_to_editBookFragment"
+            app:destination="@id/editBookFragment"
+            app:enterAnim="@anim/slide_in_bottom"
+            app:exitAnim="@anim/slide_out_top"
+            app:popEnterAnim="@anim/slide_in_top"
+            app:popExitAnim="@anim/slide_out_bottom"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/editCategoryFragment"
+        android:name="learn.shendy.ebookshop.views.fragments.EditCategoryFragment"
+        android:label="EditCategoryFragment"
+        tools:layout="@layout/fragment_edit_category">
+        <action
+            android:id="@+id/action_editCategoryFragment_to_categoryBookListFragment"
+            app:destination="@id/categoryBookListFragment"
+            app:enterAnim="@anim/slide_in_top"
+            app:exitAnim="@anim/slide_out_bottom"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@id/categoryBookListFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/addBookFragment"
+        android:name="learn.shendy.ebookshop.views.fragments.AddBookFragment"
+        android:label="AddBookFragment"
+        tools:layout="@layout/fragment_add_book"/>
+
+    <fragment
+        android:id="@+id/editBookFragment"
+        android:name="learn.shendy.ebookshop.views.fragments.EditBookFragment"
+        android:label="EditBookFragment"
+        tools:layout="@layout/fragment_edit_book"/>
+
+</navigation>

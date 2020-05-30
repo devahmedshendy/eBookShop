@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" >
+
+    <data>
+        <import type="android.view.View" />
+
+        <variable
+            name="isDashboardListLoading"
+            type="boolean" />
+    </data>
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/dashboard_drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".views.MainActivity"
+        tools:openDrawer="start">
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/dashboard_navigation_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            app:itemTextColor="#EE0070"
+            app:itemIconTint="#EE0070"
+            android:background="@color/dashboardDrawerBackground"
+            app:headerLayout="@layout/drawer_header_dashboard"
+            app:menu="@menu/dashboard_drawer_menu"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            tools:context=".views.fragments.DashboardFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/dashboard_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/dashboard_toolbar_menu_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:padding="5dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_menu_white" />
+
+                    <TextView
+                        android:id="@+id/dashboard_toolbar_title"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        android:fontFamily="@font/cabin"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:text="@string/dashboard"
+                        android:textAllCaps="true"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/dashboard_toolbar_menu_iv"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="@string/dashboard" />
+
+                    <TextView
+                        android:id="@+id/dashboard_toolbar_subtitle"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="2dp"
+                        android:fontFamily="@font/cabin"
+                        android:gravity="bottom|start"
+                        android:singleLine="true"
+                        android:text="@string/dashboard_toolbar_subtitle"
+                        android:textAllCaps="false"
+                        android:textColor="#C9D5DE"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/dashboard_toolbar_title"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.appcompat.widget.Toolbar>
+
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/add_category_fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:text="@string/add_category"
+                android:textColor="@color/bgGradientEndColor"
+                android:textSize="12sp"
+                app:icon="@drawable/ic_add_category"
+                app:iconPadding="5dp"
+                app:iconSize="22dp"
+                app:iconTint="@color/bgGradientEndColor"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/dashboard_list_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="5dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/loading_spinner_include"
+                app:layout_constraintTop_toBottomOf="@+id/dashboard_toolbar"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <include
+                android:id="@+id/loading_spinner_include"
+                layout="@layout/progressbar_loading_list_data"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:elevation="5dp"
+                android:visibility="visible" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+</layout>
