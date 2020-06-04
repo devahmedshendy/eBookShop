@@ -20,16 +20,16 @@ This app helps user to view books for each category, and apply many operations l
 ## DEMOS
 - **`Overview`**  
 
-[<img src="https://img.youtube.com/vi/NJfXzT1jlJc/maxresdefault.jpg" width="50%">](https://youtu.be/NJfXzT1jlJc)  
+[<p align="center"><img src="https://img.youtube.com/vi/NJfXzT1jlJc/maxresdefault.jpg" width="70%"></p>](https://youtu.be/NJfXzT1jlJc)  
 
 - **`Add/Edit/Delete Book`**  
 
-[<img src="https://img.youtube.com/vi/Crm9Dty6hwo/maxresdefault.jpg" width="50%">](https://youtu.be/Crm9Dty6hwo)  
+[<p align="center"><img src="https://img.youtube.com/vi/Crm9Dty6hwo/maxresdefault.jpg" width="70%"></p>](https://youtu.be/Crm9Dty6hwo)  
 
 - **`Add Category, Add Book in Wrong Category`**  
 
-[<img src="https://img.youtube.com/vi/KJlHUZJhUKE/maxresdefault.jpg" width="50%">](https://youtu.be/KJlHUZJhUKE)  
+[<p align="center"><img src="https://img.youtube.com/vi/KJlHUZJhUKE/maxresdefault.jpg" width="70%"></p>](https://youtu.be/KJlHUZJhUKE)  
 
 - **`Edit/Delete Category, Reset App To Default Settings`**  
 
-[<img src="https://img.youtube.com/vi/RfkbE5ej-OQ/maxresdefault.jpg" width="50%">](https://youtu.be/RfkbE5ej-OQ)  
+[<p align="center"><img src="https://img.youtube.com/vi/RfkbE5ej-OQ/maxresdefault.jpg" width="70%"></p>](https://youtu.be/RfkbE5ej-OQ)  
